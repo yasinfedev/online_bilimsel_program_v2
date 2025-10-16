@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2. Uluslararası Travma Kongresi – Bilimsel Program</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;       /* koyu lacivert */
+      --panel:#0f172a;    /* kart arka planı */
+      --muted:#94a3b8;    /* ikincil metin */
+      --text:#e2e8f0;     /* ana metin */
+      --brand:#22d3ee;    /* aksan */
+      --ring:#334155;
+      --success:#10b981;
+      --danger:#ef4444;
+      /* Salon renkleri */
+      --A:#ef4444; /* A: kırmızı */
+      --B:#eab308; /* B: sarı */
+      --C:#3b82f6; /* C: mavi */
+      --D:#a855f7; /* D: mor */
+      --E:#14b8a6; /* E: camgöbeği */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0b1220 0%,#0b1220 40%,#0e1527 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--ring)}
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    h1{margin:0;font-size:22px;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:14px;margin-top:4px}
+
+    /* Kontroller */
+    .controls{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+    @media(min-width:800px){.controls{grid-template-columns:1fr auto auto auto}}
+    .search{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--ring);border-radius:10px;padding:10px 12px}
+    .search input{flex:1;background:transparent;border:0;outline:0;color:var(--text);font-size:14px}
+    .select,.btn{background:var(--panel);border:1px solid var(--ring);color:var(--text);padding:10px 12px;border-radius:10px;font-size:14px}
+    .btn{cursor:pointer}
+    .btn:hover{border-color:#466}
+
+    /* Gün sekmeleri */
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .tab{border:1px solid var(--ring);background:var(--panel);padding:10px 14px;border-radius:100px;font-size:14px;cursor:pointer}
+    .tab.active{border-color:var(--brand);box-shadow:0 0 0 2px rgba(34,211,238,.15)}
+
+    /* Şimdi gerçekleşen */
+    .now{border-left:3px solid var(--brand);padding-left:10px;margin:14px 0 8px;color:var(--brand);font-weight:700;letter-spacing:.3px}
+    .nowgrid{display:grid;gap:12px}
+    @media(min-width:800px){.nowgrid{grid-template-columns:repeat(3,1fr)}}
+
+    /* Kartlar */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid var(--ring);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative}
+    .chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#0b1220;background:var(--muted);border-radius:999px;padding:6px 10px;font-weight:700;letter-spacing:.3px}
+    .chip[data-room="A"]{background:var(--A)}
+    .chip[data-room="B"]{background:var(--B)}
+    .chip[data-room="C"]{background:var(--C)}
+    .chip[data-room="D"]{background:var(--D)}
+    .chip[data-room="E"]{background:var(--E)}
+    .time{font-size:13px;color:var(--muted)}
+    .title{font-size:15px;font-weight:700;line-height:1.25}
+    .speakers{font-size:13px;color:var(--muted)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{border:1px dashed var(--ring);padding:4px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+    .live{position:absolute;top:12px;right:12px;border:1px solid rgba(239,68,68,.4);color:#fecaca;background:rgba(239,68,68,.12);padding:4px 8px;border-radius:8px;font-size:11px;display:none}
+    .card.live .live{display:inline-block}
+
+    /* Günlük tablo */
+    .daygrid{display:grid;gap:12px}
+    @media(min-width:900px){.daygrid{grid-template-columns:repeat(3,1fr)}}
+
+    footer{padding:50px 0;color:var(--muted);text-align:center}
+    .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .legend .chip{color:#0b1220}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2. Uluslararası Travma Kongresi – Bilimsel Program</h1>
+      <div class="sub">27–30 Kasım 2025 • Konya Şehir Hastanesi • Zaman dilimi: Europe/Istanbul (TRT)</div>
+
+      <div class="controls">
+        <label class="search" title="Oturum, konuşmacı veya panel ara">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="q" placeholder="Ara: örn. 'kafa travması', 'REBOA', 'Panel 12'" />
+        </label>
+        <select id="room" class="select" title="Salona göre süz">
+          <option value="">Salon: Hepsi</option>
+          <option value="A">Salon A</option>
+          <option value="B">Salon B</option>
+          <option value="C">Salon C</option>
+          <option value="D">Salon D (Workshop)</option>
+          <option value="E">Salon E (Workshop)</option>
+        </select>
+        <button id="todayBtn" class="btn" title="Bugünün programına git">Bugün</button>
+        <button id="resetBtn" class="btn" title="Filtreleri temizle">Sıfırla</button>
+      </div>
+
+      <div class="legend">
+        <span class="chip" data-room="A">Salon A</span>
+        <span class="chip" data-room="B">Salon B</span>
+        <span class="chip" data-room="C">Salon C</span>
+        <span class="chip" data-room="D">Salon D</span>
+        <span class="chip" data-room="E">Salon E</span>
+      </div>
+
+      <div class="tabs" id="tabs"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="now" id="nowLabel">Şimdi gerçekleşen oturumlar</div>
+    <div class="nowgrid" id="now"></div>
+
+    <div id="dayMount"></div>
+  </main>
+
+  <footer>
+    © 2025 2. Uluslararası Travma Kongresi • Program taslağı. Güncellemeler salon girişlerinde ve duyuru ekranlarında bildirilecektir.
+  </footer>
+
+  <script>
+    // === 1) Veri seti (kısaltılmış DEMO) ===
+    // Tam programa hızlıca genişleyebilir: Aşağıdaki events[] listesine aynı formatta öğe ekleyin.
+    // Tarih formatı: 'YYYY-MM-DD', saatler 24h 'HH:MM'.
+
+    const tz = 'Europe/Istanbul';
+
+    const events = [
+      // 27 Kasım Perşembe – Salon D/E: Kurslar
+      {date:'2025-11-27', start:'09:00', end:'16:30', room:'D', panel:'REBOA KURSU', title:'Teorik + Pratik Eğitim', chairs:'—', speakers:'Eğiticiler: Prof.Dr.Selami Gürkan, Prof.Dr.Özcan Gür, Doç.Dr.Serhat Örün, Doç.Dr.Bahadır Taşlıdere, Doç.Dr.Cüneyt Arıkan, Doç.Dr.Fatma Çakmak, Uzm.Dr.Sema Ayten'},
+      {date:'2025-11-27', start:'09:00', end:'16:30', room:'E', panel:'Travma Ultrasonografisi Kursu', title:'Teorik + Pratik Eğitim', chairs:'—', speakers:'Eğiticiler: Doç.Dr.Bora Çekmen, Dr.Öğr.Üyesi Büşra Bildik, Dr.Öğr.Üyesi Ramazan Ünal, Uzm.Dr.Ali Sağlık, Uzm.Dr.Asiye Müminat Çap'},
+      {date:'2025-11-27', start:'13:30', end:'14:45', room:'A', panel:'Panel 1: ATLS 11 & Updates', title:'Emergency Medicine Session', chairs:'Prof.Dr.Behçet Al; Doç.Dr.Demet Acar', speakers:'H.Khalifa (Traumatic cardiac arrest 2025), H. Al Thani (Trauma pregnancy – Qatar exp.)'},
+      {date:'2025-11-27', start:'15:10', end:'16:25', room:'A', panel:'Panel 2: Trauma Resuscitation & Protocols', title:'Emergency Medicine Session', chairs:'Prof.Dr.Başar Cander; Uzm.Dr.Yasin Yıldız', speakers:'K. Ateyyah (TBI), Kh. Anvarov (Trauma coagulopathy), P. Kivela (Emergency psychiatry role)'},
+      {date:'2025-11-27', start:'16:30', end:'18:30', room:'A', panel:'Açılış Seremonisi', title:'', chairs:'', speakers:''},
+      {date:'2025-11-27', start:'18:30', end:'20:00', room:'A', panel:'Kongre Tanışma Seansı', title:'', chairs:'', speakers:''},
+
+      // 28 Kasım Cuma – örnek bloklar (tam listeyi PDF’den ekleyebilirsiniz)
+      {date:'2025-11-28', start:'09:00', end:'10:15', room:'B', panel:'Panel 4: Omurga ve Omurilik Yaralanmaları', title:'Beyin Cerrahisi Oturumu 1', chairs:'Prof.Dr.Fatih Keskin; Prof.Dr.Ender Köktekir', speakers:'D. Araç; E.K. İzci; M. Şahinoğlu'},
+      {date:'2025-11-28', start:'09:00', end:'10:15', room:'C', panel:'Panel 5: Travmaya İlk Yaklaşım', title:'Basamaklarda Travma Oturumu', chairs:'Doç.Dr.Ahmet Çağlar; Uzm.Dr.Osman L. Demirci', speakers:'E.C. Kıncı; M.Ö. Gönen; İşyeri hekimliğinde travma; Primer/sekonder bakı'},
+      {date:'2025-11-28', start:'10:40', end:'11:55', room:'A', panel:'Panel 6: Kafa Travmaları', title:'Beyin Cerrahisi Oturumu 2', chairs:'Prof.Dr.Erdal Kalkan; Prof.Dr.M.F. Erdi', speakers:'Kafa travmalı yaklaşım; İKB artışı; Antikoagülan hasta yönetimi; Girişimsel radyoloji'},
+      {date:'2025-11-28', start:'13:30', end:'14:45', room:'A', panel:'Panel 9: Özel Travmalar ve Sendromlar', title:'Acil Oturumu', chairs:'Prof.Dr.Halil Kaya; Doç.Dr.Bora Çekmen', speakers:'Balistik; Yüksek irtifa & dalış; Kompartman; Crush'},
+      {date:'2025-11-28', start:'15:10', end:'16:25', room:'C', panel:'Panel 14: Travma Hastasında Analjezi & Sedasyon', title:'Ağrı ve Sedasyon Oturumu', chairs:'Doç.Dr.M. Ekmekyapar; Doç.Dr.O. Bol', speakers:'Ağrı ve sedasyon; İlaç seçenekleri; Antibiyotik seçimi; Topikal kanama durdurucular'},
+
+      // 29 Kasım Cumartesi – örnek
+      {date:'2025-11-29', start:'09:00', end:'10:15', room:'C', panel:'Panel 17: Çevresel Aciller', title:'Çevresel Aciller Oturumu', chairs:'Doç.Dr.Turgut Dolanbay; Dr.Öğr.Üyesi E.F. Vişneci', speakers:'Sıcak çarpması; Elektrik çarpması; Yılan & akrep; Deniz canlıları'},
+      {date:'2025-11-29', start:'10:40', end:'11:55', room:'A', panel:'Panel 18: Travma Hastasında Yoğun Bakım İzlemi', title:'Acil Tıp Oturumu', chairs:'Prof.Dr.Betül Kozanhan; Prof.Dr.Alper Yosunkaya', speakers:'Organ destek; Arrest sonrası bakım; Takip parametreleri; Komplikasyonlar'},
+      {date:'2025-11-29', start:'15:10', end:'16:25', room:'C', panel:'Panel 26: Travmada Yapay Zeka', title:'Yapay Zeka Oturumu', chairs:'Doç.Dr.Behçet Varışlı; Doç.Dr.Sevilay Vural', speakers:'Karar destek; Tanıda YZ; Eğitimde YZ; Triyajda YZ'},
+
+      // 30 Kasım Pazar – örnek
+      {date:'2025-11-30', start:'09:00', end:'10:15', room:'C', panel:'Panel 29: Travmada Psikiyatri', title:'Travma Psikiyatrisi Oturumu', chairs:'Doç.Dr.Fatma Çakmak; Doç.Dr.Ceren Ş. Tanrıkulu', speakers:'Psikiyatrik değerlendirme; Hasta yakınına destek; Vefat haber verme'},
+      {date:'2025-11-30', start:'10:40', end:'11:55', room:'B', panel:'Panel 31: Travmada Adli Yönetim', title:'Acil Tıp Oturumu', chairs:'Prof.Dr.Şerife Özdinç; Doç.Dr.Bahadır Taşlıdere', speakers:'Kaza dışı yaralanmalar; Aile iletişimi & adli bildirim; Adli rapor; Malpraktis'},
+      {date:'2025-11-30', start:'12:30', end:'13:00', room:'A', panel:'Kapanış Seremonisi', title:'', chairs:'', speakers:''},
+    ];
+
+    // === 2) Yardımcılar ===
+    const fmt = (d) => new Intl.DateTimeFormat('tr-TR',{dateStyle:'full', timeZone:tz}).format(d);
+    const parseLocal = (dateStr, timeStr) => {
+      // Europe/Istanbul için yerel tarih-saat oluşturur
+      const [y,m,d] = dateStr.split('-').map(Number);
+      const [H,Mi] = timeStr.split(':').map(Number);
+      return new Date(Date.UTC(y,m-1,d,H-3,Mi)); // TRT ~ UTC+3
+    };
+
+    const byDate = [...new Set(events.map(e=>e.date))].sort();
+
+    // === 3) Sekmeler ===
+    const tabsEl = document.getElementById('tabs');
+    let activeDate = byDate[0];
+
+    function mountTabs(){
+      tabsEl.innerHTML = '';
+      byDate.forEach(d=>{
+        const btn = document.createElement('button');
+        btn.className = 'tab' + (d===activeDate?' active':'');
+        const dt = new Date(d+'T12:00:00');
+        btn.textContent = new Intl.DateTimeFormat('tr-TR',{weekday:'short', day:'2-digit', month:'long'}).format(dt);
+        btn.title = d;
+        btn.onclick = ()=>{activeDate=d;mountTabs();renderDay();scrollTo(0,0)};
+        tabsEl.appendChild(btn);
+      });
+    }
+
+    // === 4) Filtreler ===
+    const qEl = document.getElementById('q');
+    const roomEl = document.getElementById('room');
+    const resetBtn = document.getElementById('resetBtn');
+    const todayBtn = document.getElementById('todayBtn');
+
+    resetBtn.onclick = ()=>{ qEl.value=''; roomEl.value=''; render(); };
+    todayBtn.onclick = ()=>{
+      const today = new Intl.DateTimeFormat('sv-SE',{timeZone:tz}).format(new Date()).slice(0,10);
+      if(byDate.includes(today)) activeDate=today; mountTabs(); renderDay();
+    };
+
+    function filterItems(items){
+      const q = qEl.value.trim().toLowerCase();
+      const r = roomEl.value;
+      return items.filter(e=>{
+        const hitsQ = !q || [e.panel,e.title,e.chairs,e.speakers].join(' ').toLowerCase().includes(q);
+        const hitsR = !r || e.room===r;
+        return hitsQ && hitsR;
+      });
+    }
+
+    // === 5) "Şimdi" bölümü ===
+    const nowWrap = document.getElementById('now');
+    const nowLabel = document.getElementById('nowLabel');
+
+    function renderNow(){
+      const now = new Date();
+      const nowISO = new Intl.DateTimeFormat('sv-SE',{timeZone:tz}).format(now).slice(0,10);
+      const current = events.filter(e=>e.date===nowISO).filter(e=>{
+        const s = parseLocal(e.date,e.start); const f = parseLocal(e.date,e.end);
+        return now>=s && now<=f;
+      });
+      nowWrap.innerHTML='';
+      if(current.length===0){ nowLabel.textContent='Bugün aktif oturum yok'; return; }
+      nowLabel.textContent='Şimdi gerçekleşen oturumlar';
+      filterItems(current).forEach(e=> nowWrap.appendChild(card(e,true)) );
+    }
+
+    // === 6) Günlük liste ===
+    const dayMount = document.getElementById('dayMount');
+
+    function renderDay(){
+      const dayItems = filterItems(events.filter(e=>e.date===activeDate)).sort((a,b)=>a.start.localeCompare(b.start)||a.room.localeCompare(b.room));
+      const grid = document.createElement('div');
+      grid.className='daygrid';
+      if(dayItems.length===0){ grid.innerHTML='<div class="sub">Bu güne ait kayıt bulunamadı.</div>'; }
+      dayItems.forEach(e=> grid.appendChild(card(e,false)) );
+      dayMount.innerHTML='';
+      const h = document.createElement('h2');
+      const dt = new Date(activeDate+'T12:00:00');
+      h.textContent = new Intl.DateTimeFormat('tr-TR',{weekday:'long', day:'2-digit', month:'long', year:'numeric'}).format(dt);
+      h.style.margin='18px 0 8px';
+      dayMount.appendChild(h);
+      dayMount.appendChild(grid);
+    }
+
+    function card(e,isLive){
+      const el = document.createElement('div');
+      el.className='card'+(isLive?' live':'');
+      el.innerHTML = `
+        <div class="live">CANLI</div>
+        <div class="meta">
+          <span class="chip" data-room="${e.room}">Salon ${e.room}</span>
+          ${e.panel?`<span class="tag">${e.panel}</span>`:''}
+        </div>
+        <div class="time">${e.start} – ${e.end}</div>
+        ${e.title?`<div class="title">${e.title}</div>`:''}
+        ${e.chairs?`<div class="speakers"><strong>Oturum Başkanları:</strong> ${e.chairs}</div>`:''}
+        ${e.speakers?`<div class="speakers"><strong>Konuşmacılar/İçerik:</strong> ${e.speakers}</div>`:''}
+      `;
+      return el;
+    }
+
+    // === 7) Başlat ===
+    qEl.addEventListener('input', ()=>{ render(); });
+    roomEl.addEventListener('change', ()=>{ render(); });
+
+    function render(){ renderNow(); renderDay(); }
+
+    mountTabs();
+    render();
+
+    // === 8) Gelişmiş özellik fikirleri (isteğe bağlı) ===
+    // - .ics dışa aktarma (tek karta buton ekleyerek)
+    // - Konuşmacı sayfaları (modal)
+    // - TR/EN dil anahtarı (UI metinlerini sözlükle yönet)
+    // - PDF yazdırma için ayrı CSS (@media print)
+  </script>
+</body>
+</html>
