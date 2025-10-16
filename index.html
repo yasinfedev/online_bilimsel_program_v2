@@ -129,31 +129,118 @@
     const tz = 'Europe/Istanbul';
 
     const events = [
-      // 27 Kasım Perşembe – Salon D/E: Kurslar
-      {date:'2025-11-27', start:'09:00', end:'16:30', room:'D', panel:'REBOA KURSU', title:'Teorik + Pratik Eğitim', chairs:'—', speakers:'Eğiticiler: Prof.Dr.Selami Gürkan, Prof.Dr.Özcan Gür, Doç.Dr.Serhat Örün, Doç.Dr.Bahadır Taşlıdere, Doç.Dr.Cüneyt Arıkan, Doç.Dr.Fatma Çakmak, Uzm.Dr.Sema Ayten'},
-      {date:'2025-11-27', start:'09:00', end:'16:30', room:'E', panel:'Travma Ultrasonografisi Kursu', title:'Teorik + Pratik Eğitim', chairs:'—', speakers:'Eğiticiler: Doç.Dr.Bora Çekmen, Dr.Öğr.Üyesi Büşra Bildik, Dr.Öğr.Üyesi Ramazan Ünal, Uzm.Dr.Ali Sağlık, Uzm.Dr.Asiye Müminat Çap'},
-      {date:'2025-11-27', start:'13:30', end:'14:45', room:'A', panel:'Panel 1: ATLS 11 & Updates', title:'Emergency Medicine Session', chairs:'Prof.Dr.Behçet Al; Doç.Dr.Demet Acar', speakers:'H.Khalifa (Traumatic cardiac arrest 2025), H. Al Thani (Trauma pregnancy – Qatar exp.)'},
-      {date:'2025-11-27', start:'15:10', end:'16:25', room:'A', panel:'Panel 2: Trauma Resuscitation & Protocols', title:'Emergency Medicine Session', chairs:'Prof.Dr.Başar Cander; Uzm.Dr.Yasin Yıldız', speakers:'K. Ateyyah (TBI), Kh. Anvarov (Trauma coagulopathy), P. Kivela (Emergency psychiatry role)'},
-      {date:'2025-11-27', start:'16:30', end:'18:30', room:'A', panel:'Açılış Seremonisi', title:'', chairs:'', speakers:''},
-      {date:'2025-11-27', start:'18:30', end:'20:00', room:'A', panel:'Kongre Tanışma Seansı', title:'', chairs:'', speakers:''},
+  // 27 Kasım 2025 – Perşembe
+  {date:'2025-11-27',start:'09:00',end:'16:30',room:'D',panel:'REBOA KURSU',title:'Teorik + Pratik Eğitim',chairs:'—',speakers:['Eğiticiler:','Prof.Dr.Selami Gürkan','Prof.Dr.Özcan Gür','Doç.Dr.Serhat Örün','Doç.Dr.Bahadır Taşlıdere','Doç.Dr.Cüneyt Arıkan','Doç.Dr.Fatma Çakmak','Uzm.Dr.Sema Ayten']},
+  {date:'2025-11-27',start:'09:00',end:'16:30',room:'E',panel:'Travma Ultrasonografisi Kursu',title:'Teorik + Pratik Eğitim',chairs:'—',speakers:['Eğiticiler:','Doç.Dr.Bora Çekmen','Dr.Öğr.Üyesi Büşra Bildik','Dr.Öğr.Üyesi Ramazan Ünal','Uzm.Dr.Ali Sağlık','Uzm.Dr.Asiye Müminat Çap']},
+  {date:'2025-11-27',start:'13:30',end:'14:45',room:'A',panel:'Panel 1: ATLS 11 and Updates',title:'Emergency Medicine Session',chairs:['Prof.Dr.Behçet Al','Doç.Dr.Demet Acar'],speakers:['Traumatic cardiac arrest 2025: What really works? (Online)','Speaker: Prof.Haitam Khalifa','Management of trauma pregnancy: Multidisciplinary approach – Qatar experiences (Online)','Speaker: Prof.Hasan Al Thani']},
+  {date:'2025-11-27',start:'14:45',end:'15:10',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-27',start:'15:10',end:'16:25',room:'A',panel:'Panel 2: Trauma Resuscitation and Updated Protocols',title:'Emergency Medicine Session',chairs:['Prof.Dr.Başar Cander','Uzm.Dr.Yasin Yıldız'],speakers:['Traumatic brain injury (Online)','Speaker: Prof.Khalid Ateyyah','Trauma-induced coagulopathy (Online)','Speaker: Prof.Khikmat Anvarov','The role of emergency psychiatry in trauma (Online)','Speaker: Prof.Paul Kivela']},
+  {date:'2025-11-27',start:'16:30',end:'18:30',room:'A',panel:'Açılış Seremonisi',title:'Opening Ceremony',chairs:'',speakers:[]},
+  {date:'2025-11-27',start:'18:30',end:'20:00',room:'A',panel:'Kongre Tanışma Seansı',title:'Hoşgeldiniz – Networking',chairs:'',speakers:[]},
 
-      // 28 Kasım Cuma – örnek bloklar (tam listeyi PDF’den ekleyebilirsiniz)
-      {date:'2025-11-28', start:'09:00', end:'10:15', room:'B', panel:'Panel 4: Omurga ve Omurilik Yaralanmaları', title:'Beyin Cerrahisi Oturumu 1', chairs:'Prof.Dr.Fatih Keskin; Prof.Dr.Ender Köktekir', speakers:'D. Araç; E.K. İzci; M. Şahinoğlu'},
-      {date:'2025-11-28', start:'09:00', end:'10:15', room:'C', panel:'Panel 5: Travmaya İlk Yaklaşım', title:'Basamaklarda Travma Oturumu', chairs:'Doç.Dr.Ahmet Çağlar; Uzm.Dr.Osman L. Demirci', speakers:'E.C. Kıncı; M.Ö. Gönen; İşyeri hekimliğinde travma; Primer/sekonder bakı'},
-      {date:'2025-11-28', start:'10:40', end:'11:55', room:'A', panel:'Panel 6: Kafa Travmaları', title:'Beyin Cerrahisi Oturumu 2', chairs:'Prof.Dr.Erdal Kalkan; Prof.Dr.M.F. Erdi', speakers:'Kafa travmalı yaklaşım; İKB artışı; Antikoagülan hasta yönetimi; Girişimsel radyoloji'},
-      {date:'2025-11-28', start:'13:30', end:'14:45', room:'A', panel:'Panel 9: Özel Travmalar ve Sendromlar', title:'Acil Oturumu', chairs:'Prof.Dr.Halil Kaya; Doç.Dr.Bora Çekmen', speakers:'Balistik; Yüksek irtifa & dalış; Kompartman; Crush'},
-      {date:'2025-11-28', start:'15:10', end:'16:25', room:'C', panel:'Panel 14: Travma Hastasında Analjezi & Sedasyon', title:'Ağrı ve Sedasyon Oturumu', chairs:'Doç.Dr.M. Ekmekyapar; Doç.Dr.O. Bol', speakers:'Ağrı ve sedasyon; İlaç seçenekleri; Antibiyotik seçimi; Topikal kanama durdurucular'},
+  // 28 Kasım 2025 – Cuma
+  {date:'2025-11-28',start:'08:00',end:'09:00',room:'A',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'08:00',end:'09:00',room:'B',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'08:00',end:'09:00',room:'C',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
 
-      // 29 Kasım Cumartesi – örnek
-      {date:'2025-11-29', start:'09:00', end:'10:15', room:'C', panel:'Panel 17: Çevresel Aciller', title:'Çevresel Aciller Oturumu', chairs:'Doç.Dr.Turgut Dolanbay; Dr.Öğr.Üyesi E.F. Vişneci', speakers:'Sıcak çarpması; Elektrik çarpması; Yılan & akrep; Deniz canlıları'},
-      {date:'2025-11-29', start:'10:40', end:'11:55', room:'A', panel:'Panel 18: Travma Hastasında Yoğun Bakım İzlemi', title:'Acil Tıp Oturumu', chairs:'Prof.Dr.Betül Kozanhan; Prof.Dr.Alper Yosunkaya', speakers:'Organ destek; Arrest sonrası bakım; Takip parametreleri; Komplikasyonlar'},
-      {date:'2025-11-29', start:'15:10', end:'16:25', room:'C', panel:'Panel 26: Travmada Yapay Zeka', title:'Yapay Zeka Oturumu', chairs:'Doç.Dr.Behçet Varışlı; Doç.Dr.Sevilay Vural', speakers:'Karar destek; Tanıda YZ; Eğitimde YZ; Triyajda YZ'},
+  {date:'2025-11-28',start:'09:00',end:'10:15',room:'A',panel:'Panel 3:',title:'KVC Oturumu 1',chairs:['Prof.Dr.Ali Sarıgül','Prof.Dr.Niyazi Görmüş','Prof.Dr.Mehmet Öç'],speakers:['Künt ve penetran kalp yaralanmaları ve perikard tamponadı yönetimi','Konuşmacı: Dr.Öğr.Üyesi Volkan Burak Taban','Travma sonrası CPR ya da ECMO CPR... Kime, ne zaman?','Konuşmacı: Doç.Dr.Ömer Faruk Çiçek','Aort yaralanmalarında zamanla yarış her zaman gerekli mi? Gözden kaçan yaralanmalar...','Konuşmacı: Dr.Öğr.Üyesi Yalçın Günerhan','REBOA: Aortanın resüsitatif balon oklüzyonu','Konuşmacı: Dr.Öğr.Üyesi Serkan Yıldırım']},
+  {date:'2025-11-28',start:'09:00',end:'10:15',room:'B',panel:'Panel 4: Omurga ve Omurilik Yaralanmaları',title:'Beyin Cerrahisi Oturumu 1',chairs:['Prof.Dr.Fatih Keskin','Prof.Dr.Ender Köktekir'],speakers:['Omurga travmalı olguda klinik ve radyolojik tanı','Konuşmacı: Doç.Dr.Densel Araç','Omurga yaralanmalarında konservatif ve cerrahi tedavi seçenekleri','Konuşmacı: Doç.Dr.Emir Kaan İzci','Çocukluk çağı omurga ve omurilik yaralanmaları ve yönetimi','Konuşmacı: Doç.Dr.Mert Şahinoğlu']},
+  {date:'2025-11-28',start:'09:00',end:'10:15',room:'C',panel:'Panel 5: Travmaya İlk Yaklaşım',title:'Basamaklarda Travma Oturumu',chairs:['Doç.Dr.Ahmet Çağlar','Uzm.Dr.Osman L.Demirci'],speakers:['Birinci basamakta travma hastası','Konuşmacı: Uzm.Dr.Emin Cihan Kıncı','İkinci basamakta travma hastası','Konuşmacı: Uzm.Dr.M.Önder Gönen','İşyeri hekimliğinde travma hastası','Konuşmacı: Doç.Dr.İlker Kaçer','Primer ve sekonder bakı','Konuşmacı: Uzm.Dr.Cemal Cander']},
 
-      // 30 Kasım Pazar – örnek
-      {date:'2025-11-30', start:'09:00', end:'10:15', room:'C', panel:'Panel 29: Travmada Psikiyatri', title:'Travma Psikiyatrisi Oturumu', chairs:'Doç.Dr.Fatma Çakmak; Doç.Dr.Ceren Ş. Tanrıkulu', speakers:'Psikiyatrik değerlendirme; Hasta yakınına destek; Vefat haber verme'},
-      {date:'2025-11-30', start:'10:40', end:'11:55', room:'B', panel:'Panel 31: Travmada Adli Yönetim', title:'Acil Tıp Oturumu', chairs:'Prof.Dr.Şerife Özdinç; Doç.Dr.Bahadır Taşlıdere', speakers:'Kaza dışı yaralanmalar; Aile iletişimi & adli bildirim; Adli rapor; Malpraktis'},
-      {date:'2025-11-30', start:'12:30', end:'13:00', room:'A', panel:'Kapanış Seremonisi', title:'', chairs:'', speakers:''},
-    ];
+  {date:'2025-11-28',start:'10:15',end:'10:40',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'10:15',end:'10:40',room:'B',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'10:15',end:'10:40',room:'C',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+
+  {date:'2025-11-28',start:'10:40',end:'11:55',room:'A',panel:'Panel 6: Kafa Travmaları',title:'Beyin Cerrahisi Oturumu 2',chairs:['Prof.Dr.Erdal Kalkan','Prof.Dr.Mehmet Fatih Erdi'],speakers:['Kafa travmalı olgularda yaklaşım ve tanı','Konuşmacı: Op.Dr.Erkam Yüksek','İntrakraniyel basınç artışında güncel tedavi seçenekleri','Konuşmacı: Doç.Dr.İlker Çöven','Antikoagülan/antiagregan kullanan hastada kafa travmasının yönetimi','Konuşmacı: Prof.Dr.Mehmet Fatih Erdi','Girişimsel radyolojik işlemler','Konuşmacı: Doç.Dr.Bekir Turgut']},
+  {date:'2025-11-28',start:'10:40',end:'11:55',room:'B',panel:'Panel 7: Travmada Görüntüleme',title:'Acil Görüntüleme Oturumu',chairs:['Prof.Dr.M.Gökhan Turtay','Prof.Dr.Ayşegül Altınkeser'],speakers:['E-FAST adımları ve uygulama ipuçları','Konuşmacı: Uzm.Dr.Asiye Müminat Çap','BT zamanlaması ve endikasyonları','Konuşmacı: Dr.Öğr.Üyesi Ramazan Ünal','MRG’nin travmadaki yeri','Konuşmacı: Uzm.Dr.Ömer Özberk']},
+  {date:'2025-11-28',start:'10:40',end:'11:55',room:'C',panel:'Panel 8: Sahada travma hastası',title:'Acil Sağlık Hizmetleri Oturumu',chairs:['Prof.Dr.Özlem Bilir','Doç.Dr.Dilek Atik'],speakers:['112 Komuta gözünden travma hastası','Konuşmacı: Uzm.Dr.Burak Polat','Paramedik/ATT gözünden travma hastası','Konuşmacı: Uzm.Dr.Alpay Tuncar','Hava ambulansı gözünden travma hastası','Konuşmacı: Uzm.Dr.Osman L.Demirci','Sağlık Bakanlığı gözünden travma hastası','Konuşmacı: Uzm.Dr.Hakan Güner']},
+
+  {date:'2025-11-28',start:'11:55',end:'13:30',room:'A',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'11:55',end:'13:30',room:'B',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'11:55',end:'13:30',room:'C',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+
+  {date:'2025-11-28',start:'13:30',end:'14:45',room:'A',panel:'Panel 9: Özel Travmalar ve Sendromlar',title:'Acil Oturumu',chairs:['Prof.Dr.Halil Kaya','Doç.Dr.Bora Çekmen'],speakers:['Balistik yaralanmalar','Konuşmacı: Doç.Dr.Bahadır Taşlıdere','Yüksek irtifa ve dalış travmaları','Konuşmacı: Doç.Dr.Abdullah Arslan','Kompartman sendromu','Konuşmacı: Uzm.Dr.Fulya Köse','Crush sendromu','Konuşmacı: Doç.Dr.Behçet Varışlı']},
+  {date:'2025-11-28',start:'13:30',end:'14:45',room:'B',panel:'Panel 10:',title:'KVC Oturumu 2',chairs:['Prof.Dr.Ufuk Özergin','Prof.Dr.Kadir Durgut','Prof.Dr.Erdal Ege'],speakers:['Karotis arter ve boyun yaralanmalarına yaklaşım','Konuşmacı: Prof.Dr.Ömer Tanyeli','Batın içi venöz yaralanmalarda tanısal yaklaşım ve yönetim','Konuşmacı: Doç.Dr.Atilla Orhan','İyatrojenik vasküler yaralanmalar','Konuşmacı: Doç.Dr.Mustafa Cüneyt Çiçek','Periferik vasküler yaralanmalar... Revaskülarizasyon ve amputasyon kararı','Konuşmacı: Dr.Abdullah Güner']},
+  {date:'2025-11-28',start:'13:30',end:'14:45',room:'C',panel:'Panel 11: Travma Simülasyonları ile Eğitim',title:'Simülasyon Oturumu',chairs:['Doç.Dr.Göknil Arı','Uzm.Dr.M.Önder Gönen'],speakers:['Simülasyonun eğitsel gücü','Konuşmacı: Uzm.Dr.Hüseyin Aldemir','Vaka oluşturma ve senaryo yazımı','Konuşmacı: Dr.Öğr.Üyesi Oya Oruç','Simülasyon sonrası değerlendirme süreci','Konuşmacı: Prof.Dr.Özlem Bilir','Multidisipliner eğitimde simülasyon kullanımı','Konuşmacı: Doç.Dr.Cüneyt Arıkan']},
+
+  {date:'2025-11-28',start:'14:45',end:'15:10',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'14:45',end:'15:10',room:'B',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'14:45',end:'15:10',room:'C',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+
+  {date:'2025-11-28',start:'15:10',end:'16:25',room:'A',panel:'Panel 12: Kitlesel Yaralanma Olaylarında Acil Müdahale',title:'Acil Tıp Oturumu',chairs:['Prof.Dr.Figen Coşkun','Doç.Dr.İlker Kaçer'],speakers:['Triyaj sistemleri ve travma skorları','Konuşmacı: Doç.Dr.Fatma Tortum','Afet hazırlığı','Konuşmacı: Prof.Dr.Ayhan Aköz','Depremlerden çıkarılan dersler','Konuşmacı: Uzm.Dr.Aksel Özdemir','Acil tıpta vaka yönetimi ve liderlik','Konuşmacı: Doç.Dr.Cüneyt Hocagil']},
+  {date:'2025-11-28',start:'15:10',end:'16:25',room:'B',panel:'Panel 13:',title:'Kadın Doğum Oturumu 1',chairs:['Prof.Dr.Ali Acar','Doç.Dr.Oğuzhan Günenc','Doç.Dr.Şükran Doğru'],speakers:['Gebelikte travmalara multidisipliner yaklaşım','Konuşmacı: Dr.Öğr.Üyesi Dilay Korucu','Gebelik travmaları sonrası fetal ve neonatal sonuçlar','Konuşmacı: Doç.Dr.Gökçen Ergül','Ciddi travmalarda perimortem sezaryen doğum','Konuşmacı: Doç.Dr.Sevcan Sarıkaya','Pelvik ve perineal travmalar','Konuşmacı: Dr.Öğr.Üyesi Kübra Gündoğan']},
+  {date:'2025-11-28',start:'15:10',end:'16:25',room:'C',panel:'Panel 14: Travma Hastasında Analjezi ve Sedasyon Stratejileri',title:'Ağrı & Sedasyon Oturumu',chairs:['Doç.Dr.Muhammed Ekmekyapar','Doç.Dr.Oğuzhan Bol'],speakers:['Travma hastasında ağrı ve sedasyon','Konuşmacı: Dr.Öğr.Üyesi Büşra Bildik','Travma hastasında ilaç seçenekleri','Konuşmacı: Doç.Dr.Muhammed Ekmekyapar','Travmada antibiyotik seçimi','Konuşmacı: Uzm.Dr.Mustafa Alpaslan','Topikal kanama durdurucular','Konuşmacı: Prof.Dr.Mehmet Gül']},
+
+  {date:'2025-11-28',start:'17:00',end:'18:30',room:'A',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'17:00',end:'18:30',room:'B',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'17:00',end:'18:30',room:'C',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'18:30',end:'20:00',room:'A',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'18:30',end:'20:00',room:'B',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+  {date:'2025-11-28',start:'18:30',end:'20:00',room:'C',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+
+  // 29 Kasım 2025 – Cumartesi
+  {date:'2025-11-29',start:'08:00',end:'09:00',room:'A',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'08:00',end:'09:00',room:'B',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'08:00',end:'09:00',room:'C',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+
+  {date:'2025-11-29',start:'09:00',end:'10:15',room:'A',panel:'Panel 15:',title:'Ortopedi Oturumu 1',chairs:['Prof.Dr.İbrahim Tuncay','Prof.Dr.Mehmet Gül'],speakers:['Pelvik travmalara yaklaşım','Konuşmacı: Prof.Dr.Mehmet Arazi','Torakolomber ve sakrum kırıklarına yaklaşım ve yönetim','Konuşmacı: Doç.Dr.Ali Güleç','6 Şubat depremi saha gözlemi ve ortopedik travmalar','Konuşmacı: Prof.Dr.M.İ.Safa Kapıcıoğlu','Alt ekstremite travmalarına acil yaklaşım','Konuşmacı: Doç.Dr.Zafer Şen']},
+  {date:'2025-11-29',start:'09:00',end:'10:15',room:'B',panel:'Panel 16: Travmada Özellikli Durumlar',title:'Acil Tıp Oturumu',chairs:['Prof.Dr.Ayhan Aköz','Prof.Dr.Şerife Özdinç'],speakers:['EKG ve EKO eşliğinde kalp damar yaralanmalarında hızlı kararlar','Konuşmacı: Uzm.Dr.Ali Sağlık','Geriatrik travmalar','Konuşmacı: Doç.Dr.Süha Serin','Sık görülen spor yaralanmalarına acil yaklaşım','Konuşmacı: Uzm.Dr.Yurdagül Baygül']},
+  {date:'2025-11-29',start:'09:00',end:'10:15',room:'C',panel:'Panel 17: Çevresel Aciller',title:'Çevresel Aciller Oturumu',chairs:['Doç.Dr.Turgut Dolanbay','Dr.Öğr.Üyesi Emin Fatih Vişneci'],speakers:['Sıcak çarpması yönetimi','Konuşmacı: Dr.Öğr.Üyesi Tufan Akın Giray','Elektrik çarpması yönetimi','Konuşmacı: Uzm.Dr.Mehmet Sezer','Yılan ve akrep sokmalarının yönetimi','Konuşmacı: Uzm.Dr.Hüseyin Yıldırım','Deniz yumuşakçalarına bağlı yaralanmalar','Konuşmacı: Dr.Öğr.Üyesi Mehmet Soyugüzel']},
+
+  {date:'2025-11-29',start:'10:15',end:'10:40',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'10:15',end:'10:40',room:'B',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'10:15',end:'10:40',room:'C',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+
+  {date:'2025-11-29',start:'10:40',end:'11:55',room:'A',panel:'Panel 18: Travma Hastasında Yoğun Bakım İzlemi',title:'Acil Tıp Oturumu',chairs:['Prof.Dr.Betül Kozanhan','Prof.Dr.Alper Yosunkaya'],speakers:['Organ destek tedavileri','Konuşmacı: Doç.Dr.Yasin Tire','Travmatik arrest sonrası bakım','Konuşmacı: Doç.Dr.M.Akif Yazar','Takip parametreleri','Konuşmacı: Doç.Dr.Ahmet Çağlar','Travma hastasında komplikasyonlar','Konuşmacı: Doç.Dr.Serhat Örün']},
+  {date:'2025-11-29',start:'10:40',end:'11:55',room:'B',panel:'Panel 19: Travma Hastalarında Transfüzyon Protokolleri',title:'Acil Tıp Oturumu',chairs:['Prof.Dr.Tarık Ocak','Doç.Dr.Abdussamed Vural'],speakers:['Travma sonrası major kanama ve koagülopati yönetimi kılavuzu','Konuşmacı: Uzm.Dr.Berke Yıldırım','Travmada frajilite kavramı','Konuşmacı: Doç.Dr.Abdussamed Vural','Yanık','Konuşmacı: Doç.Dr.Alparslan Şahin','Hipotermi ve ısıtma uygulamaları','Konuşmacı: Prof.Dr.Tarık Ocak']},
+  {date:'2025-11-29',start:'10:40',end:'11:55',room:'C',panel:'Panel 20: Travmada Triyaj ve Ekip Çalışması',title:'Sahada Travma Oturumu',chairs:['Prof.Dr.Yücel Yüzbaşıoğlu','Doç.Dr.Fatih Çalışkan','Prof.Dr.Uğur Lök'],speakers:['Sahada Triyaj sistemlerinin karşılaştırılması','Konuşmacı: Dr.Öğr.Üyesi Harun Yıldırım','Ekip içi iletişim ve kriz yönetimi','Konuşmacı: Uzm.Dr.Sezen Argın','UMKE uygulamaları ve tecrübesi','Konuşmacı: Uzm.Dr.Fatih Cemal Tekin','Afetlerde kamuoyu ve basınla iletişim','Konuşmacı: Uzm.Dr.Numan Duman']},
+
+  {date:'2025-11-29',start:'11:55',end:'13:30',room:'A',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'11:55',end:'13:30',room:'B',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'11:55',end:'13:30',room:'C',panel:'Öğle Yemeği',title:'Lunch Break',chairs:'',speakers:[]},
+
+  {date:'2025-11-29',start:'13:30',end:'14:45',room:'A',panel:'Panel 21: Acil Servise Sık Başvuru Nedeni Spesifik Ortopedik Travmalar',title:'Ortopedi Oturumu 2',chairs:['Prof.Dr.M.İ.Safa Kapıcıoğlu','Prof.Dr.Mehmet Arazi','Prof.Dr.Zeynep Çakır'],speakers:['Acil serviste periprostetik kırığa yaklaşım','Konuşmacı: Prof.Dr.İbrahim Tuncay','Üst humerus kırıkları ve omuz yaralanmaları','Konuşmacı: Prof.Dr.Kerem Bilsel','Çocuklarda epifiz kırıkları ve yönetimi','Konuşmacı: Prof.Dr.Hakan Şeneran','Çocuklarda sokak travmaları','Konuşmacı: Doç.Dr.Ahmet Sinan Sarı']},
+  {date:'2025-11-29',start:'13:30',end:'14:45',room:'B',panel:'Panel 22: Vakalar Eşliğinde Genitoüriner Travmalar Paneli',title:'Üroloji Oturumu',chairs:['Prof.Dr.Serdar Göktaş','Doç.Dr.Emre Altıntaş'],speakers:['Vaka I','Konuşmacı: Doç.Dr.Yunus Emre Göğer','Vaka II','Konuşmacı: Doç.Dr.Murat Gül','Vaka III','Konuşmacı: Doç.Dr.Bilal Hamarat','Vaka IV','Konuşmacı: Doç.Dr.Mehmet Sevim']},
+  {date:'2025-11-29',start:'13:30',end:'14:45',room:'C',panel:'Panel 23: Travma hastasının nakli ve sevki',title:'Nakil ve Sevk Oturumu',chairs:['Doç.Dr.Hasan Büyükaslan','Doç.Dr.Bilgehan Demir'],speakers:['Travma hastasının görüntüleme odasına nakli','Konuşmacı: Doç.Dr.Turgut Dolanbay','Travma hastasının ameliyathaneye nakli','Konuşmacı: Uzm.Dr.Sema Ayten','Travma hastasının yoğun bakıma nakli','Konuşmacı: Uzm.Dr.Fatma Betül Çalışkan','Travma hastasının ileri merkeze sevki','Konuşmacı: Uzm.Dr.Havva Serrin Yiğit']},
+
+  {date:'2025-11-29',start:'14:45',end:'15:10',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'14:45',end:'15:10',room:'B',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'14:45',end:'15:10',room:'C',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+
+  {date:'2025-11-29',start:'15:10',end:'16:25',room:'A',panel:'Panel 24: Abdominal Solid Organ Travmaları',title:'Genel Cerrahi Oturumu 1',chairs:['Prof.Dr.Tevfik Küçükkartallar','Prof.Dr.İlhan Ece'],speakers:['Karaciğer yaralanmaları','Konuşmacı: Doç.Dr.Mustafa Şentürk','Dalak yaralanmaları','Konuşmacı: Dr.Öğr.Üyesi Ömer Kişi','Pankreas yaralanmaları','Konuşmacı: Doç.Dr.İsmail Hasırcı','Retroperitoneal yaralanmalar','Konuşmacı: Prof.Dr.Serdar Yormaz']},
+  {date:'2025-11-29',start:'15:10',end:'16:25',room:'B',panel:'Panel 25: El ve üst ekstremite acilleri paneli',title:'El Cerrahisi Oturumu',chairs:['Prof.Dr.Mehmet Ali Acar','Doç.Dr.Ali Özdemir'],speakers:['El enfeksiyonlarına yaklaşım, acil ve cerrahi yönetim','Konuşmacı: Doç.Dr.Gökçe Yıldıran','El ve el bileği kırık/çıkıklarına yaklaşım ve yönetim','Konuşmacı: Op.Dr.Muhammet Okkan','Parmak ve ekstremite amputasyonlarına yaklaşım ve yönetim','Konuşmacı: Doç.Dr.Ali Özdemir','Açık kırıklar, kemik ve yumuşak doku problemlerinin mikrocerrahi çözümü','Konuşmacı: Prof.Dr.Mehmet Ali Acar','Brakial pleksus ve periferik sinir yaralanmalarının tanı ve yönetimi','Konuşmacı: Op.Dr.Caner Mesut Mataracı']},
+  {date:'2025-11-29',start:'15:10',end:'16:25',room:'C',panel:'Panel 26: Travmada yapay zeka',title:'Yapay Zeka Oturumu',chairs:['Doç.Dr.Behçet Varışlı','Doç.Dr.Sevilay Vural'],speakers:['YZ tabanlı karar destekleri, risk stratifikasyonu ve kaynak yönetimi','Konuşmacı: Doç.Dr.Sevilay Vural','Travma hastasının tanısında yapay zeka','Konuşmacı: Dr.Öğr.Üyesi Mustafa Oğuz Cumaoğlu','Travma eğitiminde yapay zeka','Konuşmacı: Uzm.Dr.Orhan Enes Tunçes','Travma hastasının triyajında yapay zeka','Konuşmacı: Uzm.Dr.Yasin Yıldız']},
+
+  {date:'2025-11-29',start:'17:00',end:'18:30',room:'A',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'17:00',end:'18:30',room:'B',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'17:00',end:'18:30',room:'C',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'18:30',end:'20:00',room:'A',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'18:30',end:'20:00',room:'B',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+  {date:'2025-11-29',start:'18:30',end:'20:00',room:'C',panel:'Akşam Yemeği',title:'Dinner',chairs:'',speakers:[]},
+
+  // 30 Kasım 2025 – Pazar
+  {date:'2025-11-30',start:'08:00',end:'09:00',room:'A',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-30',start:'08:00',end:'09:00',room:'B',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+  {date:'2025-11-30',start:'08:00',end:'09:00',room:'C',panel:'Sözlü Bildiri Sunumları',title:'Oral Presentations',chairs:'',speakers:[]},
+
+  {date:'2025-11-30',start:'09:00',end:'10:15',room:'A',panel:'Panel 27: İçi Boş Organ Travmaları',title:'Genel Cerrahi Oturumu 2',chairs:['Prof.Dr.Celaletti Vatansev','Prof.Dr.Murat Çakır'],speakers:['Özofagus yaralanmaları','Konuşmacı: Dr.Öğr.Üyesi Murtaza Kaya','Mide-duodenum-ince bağırsak yaralanmaları','Konuşmacı: Doç.Dr.Abdulhalim Serden Ay','Kolon yaralanmaları','Konuşmacı: Doç.Dr.Ersin Turan','Anorektal yaralanmalar','Konuşmacı: Doç.Dr.Gürcan Şimşek']},
+  {date:'2025-11-30',start:'09:00',end:'10:15',room:'B',panel:'Panel 28:',title:'Göğüs Cerrahisi Oturumu',chairs:['Prof.Dr.Tamer Altınok','Prof.Dr.Hıdır Esme'],speakers:['Toraks travmalı hastada ilk değerlendirme ve güncel risk skorlamaları','Konuşmacı: Doç.Dr.Hüseyin Yıldıran','Toraks travmasında acil cerrahi girişimler','Konuşmacı: Dr.Öğr.Üyesi Serkan Uysal','Toraks travmalı hastada komplikasyonları önlemeye yönelik yaklaşımlar','Konuşmacı: Dr.Öğr.Üyesi Murat Kuru']},
+  {date:'2025-11-30',start:'09:00',end:'10:15',room:'C',panel:'Panel 29: Travmada Psikiyatri',title:'Travma Psikiyatrisi Oturumu',chairs:['Doç.Dr.Fatma Çakmak','Doç.Dr.Ceren Ş.Tanrıkulu'],speakers:['Travma hastasında psikiyatrik değerlendirme ve destek','Konuşmacı: Doç.Dr.Esra Çiçek','Travma hasta yakınlarında psikiyatrik destek','Konuşmacı: Uzm.Dr.Ömer Faruk İşleyen','Travmatik vefat haber verme','Konuşmacı: Uzm.Dr.Fatih Tepe','Travma ekibi açısından wellness ve psikoloji','Konuşmacı: Doç.Dr.Fatma Çakmak']},
+
+  {date:'2025-11-30',start:'10:15',end:'10:40',room:'A',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-30',start:'10:15',end:'10:40',room:'B',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+  {date:'2025-11-30',start:'10:15',end:'10:40',room:'C',panel:'Coffee Break',title:'Kahve Arası',chairs:'',speakers:[]},
+
+  {date:'2025-11-30',start:'10:40',end:'11:55',room:'A',panel:'Panel 30: Travmatik KBB Acilleri Paneli',title:'KBB-BBC Oturumu',chairs:['Prof.Dr.Bahar Çolpan','Doç.Dr.Abitter Yücel'],speakers:['Acil serviste maksillofasiyal travmaların yönetimi','Konuşmacı: Prof.Dr.Bahar Çolpan','Boyunda yumuşak doku travmalarına yaklaşım','Konuşmacı: Doç.Dr.Abitter Yücel','Göz küresi yaralanmalarına yaklaşım ve yönetim','Konuşmacı: Doç.Dr.Muammer Özçimen','Baş ve fasiyal bölgede travmatik yumuşak doku yaralanmaları','Konuşmacı: Uzm.Dr.Zikrullah Baycar']},
+  {date:'2025-11-30',start:'10:40',end:'11:55',room:'B',panel:'Panel 31: Travmada Adli Yönetim',title:'Acil Tıp Oturumu',chairs:['Prof.Dr.Şerife Özdinç','Doç.Dr.Bahadır Taşlıdere'],speakers:['Kaza dışı yaralanmalar (ihmal/istismar)','Konuşmacı: Dr.Öğr.Üyesi Ramazan Kıyak','Aile iletişimi ve adli bildirim','Konuşmacı: Doç.Dr.Levent Şahin','Adli rapor ve basit tıbbi müdahale kavramı','Konuşmacı: Doç.Dr.Zekeriya Tataroğlu','Travmada malpraktis','Konuşmacı: Uzm.Dr.Mustafa Karabulut']},
+  {date:'2025-11-30',start:'10:40',end:'11:55',room:'C',panel:'Panel 32:',title:'Gözden Kaçanlar Oturumu',chairs:['Doç.Dr.Mehmet Koşargelir','Doç.Dr.Burak Katipoğlu'],speakers:['Sahada İleri Yaşam Desteği','Konuşmacı: Doç.Dr.Mert Özen','Travmada idari yönetim','Konuşmacı: Doç.Dr.Erdal Tekin','Üreter yaralanmaları','Konuşmacı: Uzm.Dr.Harun Uçmak']},
+
+  {date:'2025-11-30',start:'11:55',end:'12:30',room:'A',panel:'Akılcı İlaç Kullanımı Oturumu',title:'KAPALI',chairs:'',speakers:['Akılcı ilaç kullanımı','Konuşmacı: Dr.Öğr.Üyesi Durmuş Ali Aslanlar']},
+  {date:'2025-11-30',start:'11:55',end:'12:30',room:'B',panel:'KAPALI',title:'—',chairs:'',speakers:[]},
+  {date:'2025-11-30',start:'11:55',end:'12:30',room:'C',panel:'KAPALI',title:'—',chairs:'',speakers:[]},
+
+  {date:'2025-11-30',start:'12:30',end:'13:00',room:'A',panel:'Kapanış Seremonisi',title:'Closing Ceremony',chairs:'',speakers:[]}
+];
 
     // === 2) Yardımcılar ===
     const fmt = (d) => new Intl.DateTimeFormat('tr-TR',{dateStyle:'full', timeZone:tz}).format(d);
@@ -243,19 +330,103 @@
     function card(e,isLive){
       const el = document.createElement('div');
       el.className='card'+(isLive?' live':'');
+      const chairsHTML = Array.isArray(e.chairs) ? '<ul>'+e.chairs.map(x=>`<li>${x}</li>`).join('')+'</ul>' : (e.chairs? String(e.chairs):'');
+      const speakersHTML = Array.isArray(e.speakers) ? '<ul>'+e.speakers.map(x=>`<li>${x}</li>`).join('')+'</ul>' : (e.speakers? String(e.speakers):'');
       el.innerHTML = `
         <div class="live">CANLI</div>
         <div class="meta">
-          <span class="chip" data-room="${e.room}">Salon ${e.room}</span>
+          ${e.room ? `<span class="chip" data-room="${e.room}">Salon ${e.room}</span>` : ``}
           ${e.panel?`<span class="tag">${e.panel}</span>`:''}
         </div>
-        <div class="time">${e.start} – ${e.end}</div>
+        ${(e.start&&e.end)?`<div class="time">${e.start} – ${e.end}</div>`:''}
         ${e.title?`<div class="title">${e.title}</div>`:''}
-        ${e.chairs?`<div class="speakers"><strong>Oturum Başkanları:</strong> ${e.chairs}</div>`:''}
-        ${e.speakers?`<div class="speakers"><strong>Konuşmacılar/İçerik:</strong> ${e.speakers}</div>`:''}
+        ${chairsHTML?`<div class="speakers"><strong>Oturum Başkanları:</strong> ${chairsHTML}</div>`:''}
+        ${speakersHTML?`<div class="speakers"><strong>Konuşmacılar/İçerik:</strong> ${speakersHTML}</div>`:''}
       `;
       return el;
     }
+
+    // === 6.5) CSV içe/dışa aktarma yardımcıları ===
+    function toCSV(rows){
+      const header = ['date','start','end','room','panel','title','chairs','speakers'];
+      const esc = v => '"'+String(v??'').replace(/"/g,'""')+'"';
+      const lines = [header.join(',')];
+      rows.forEach(e=>{
+        lines.push([e.date,e.start,e.end,e.room,e.panel,e.title,e.chairs,e.speakers].map(esc).join(','));
+      });
+      return lines.join('
+');
+    }
+    function parseCSV(text){
+      if(!text) return [];
+      const lines = text.split(/
+?
+/).filter(Boolean);
+      if(lines.length===0) return [];
+      const rawHeader = lines[0].split(',').map(s=>s.trim().toLowerCase());
+      const idx = (name)=> rawHeader.indexOf(name);
+      const need = ['date','start','end','room','panel','title','chairs','speakers'];
+      if(!need.every(n=>idx(n)>-1)) return [];
+      const out = [];
+      for(let i=1;i<lines.length;i++){
+        const parts = lines[i].match(/\"([^\"]*)\"|[^,]+/g)?.map(s=>s.replace(/^\"|\"$/g,'')) || lines[i].split(',');
+        const row = {
+          date: parts[idx('date')]?.trim()||'',
+          start: parts[idx('start')]?.trim()||'',
+          end: parts[idx('end')]?.trim()||'',
+          room: parts[idx('room')]?.trim()||'',
+          panel: parts[idx('panel')]?.trim()||'',
+          title: parts[idx('title')]?.trim()||'',
+          chairs: parts[idx('chairs')]?.trim()||'',
+          speakers: parts[idx('speakers')]?.trim()||''
+        };
+        if(row.date) out.push(row);
+      }
+      return out;
+    }
+    (function mountCsvButtons(){
+      const controls = document.querySelector('.controls');
+      if(!controls) return;
+      const importBtn = document.createElement('button');
+      importBtn.className = 'btn';
+      importBtn.id = 'csvImportBtn';
+      importBtn.textContent = 'CSV Yükle';
+      importBtn.title = 'CSV yapıştırarak tam programı içe aktar';
+      const exportBtn = document.createElement('button');
+      exportBtn.className = 'btn';
+      exportBtn.id = 'csvExportBtn';
+      exportBtn.textContent = 'CSV İndir';
+      exportBtn.title = 'Geçerli listeyi CSV olarak indir';
+      controls.appendChild(importBtn);
+      controls.appendChild(exportBtn);
+      importBtn.onclick = ()=>{
+        const sample = 'date,start,end,room,panel,title,chairs,speakers
+'+
+          '2025-11-27,09:00,16:30,D,REBOA KURSU,Teorik + Pratik Eğitim,—,Eğiticiler: Prof.Dr.Selami Gürkan...';
+        const pasted = prompt('CSV verisini başlık satırı ile birlikte yapıştırın (UTF-8):', sample);
+        if(!pasted) return;
+        const parsed = parseCSV(pasted);
+        if(parsed.length===0){ alert('CSV okunamadı. Başlıklar: date,start,end,room,panel,title,chairs,speakers olmalı.'); return; }
+        events.length = 0; events.push(...parsed);
+        // Sekmeleri güncelle
+        while (tabsEl.firstChild) tabsEl.removeChild(tabsEl.firstChild);
+        const dates = [...new Set(events.map(e=>e.date))].sort();
+        byDate.length = 0; byDate.push(...dates);
+        activeDate = byDate[0];
+        mountTabs();
+        render();
+        alert('Program yüklendi: '+parsed.length+' kayıt.');
+      };
+      exportBtn.onclick = ()=>{
+        const csv = toCSV(events);
+        const blob = new Blob([csv],{type:'text/csv;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'travma-program.csv';
+        document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+      };
+    })();
 
     // === 7) Başlat ===
     qEl.addEventListener('input', ()=>{ render(); });
