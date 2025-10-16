@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2. Uluslararası Travma Kongresi – Online Bilimsel Program</title>
+  <title>2. Uluslararası Travma Kongresi – Bilimsel Program</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -69,22 +69,77 @@
     .btn.ghost{background:#fff;color:#00509e;border-color:#00509e}
     .btn.ghost:hover{background:#f0f6ff}
 
-  </style>
+  
+/* Kartları sıkılaştırma ve font küçültme */
+.card {
+  font-size: 0.88rem;
+  line-height: 1.3;
+  padding: 10px 12px;
+}
+.card .title {
+  font-size: 0.95rem;
+  margin-bottom: 3px;
+}
+.card .speakers,
+.card .meta,
+.card .time {
+  font-size: 0.84rem;
+}
+.card ul {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+
+/* Renkli butonlar */
+.btn-all {
+  background-color: #ff9800;
+  color: #fff;
+}
+.btn-all:hover {
+  background-color: #e68900;
+}
+.btn-today {
+  background-color: #0d47a1;
+  color: #fff;
+}
+.btn-today:hover {
+  background-color: #08306b;
+}
+.btn-reset {
+  background-color: #c62828;
+  color: #fff;
+}
+.btn-reset:hover {
+  background-color: #a81f1f;
+}
+
+
+/* ---- Buton renkleri (yüksek öncelik) ---- */
+.btn.btn-all { background-color: #ff9800 !important; border-color: #ff9800 !important; color:#fff !important; }
+.btn.btn-all:hover { background-color: #e68900 !important; }
+
+.btn.btn-today { background-color: #0d47a1 !important; border-color: #0d47a1 !important; color:#fff !important; }
+.btn.btn-today:hover { background-color: #08306b !important; }
+
+.btn.btn-reset { background-color: #c62828 !important; border-color: #c62828 !important; color:#fff !important; }
+.btn.btn-reset:hover { background-color: #a81f1f !important; }
+
+</style>
 </head>
 <body>
   <div id="top"></div>
   <header>
     <div class="container">
       <h1><small>2. Uluslararası Travma Kongresi – Bilimsel Program</small></h1>
-      <div class="sub">27–30 Kasım 2025 • Konya Şehir Hastanesi • Zaman dilimi: Avrupa/Istanbul</div>
+      <div class="sub">27–30 Kasım 2025 • Konya Şehir Hastanesi • Zaman dilimi: Avrupa/İstanbul</div>
 
       <div class="controls">
         <label class="search" title="Oturum, konuşmacı veya panel ara">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input id="q" placeholder="Ara: örn. 'kafa travması', 'REBOA', 'Panel 12'" />
       <button id="searchGo" class="btn" style="display:none" title="Ara">Ara ↵</button>
     </label>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           
         </label>
         <select id="room" title="Salona göre süz">
@@ -95,20 +150,11 @@
           <option value="D">Salon D</option>
           <option value="E">Salon E</option>
         </select>
-        <button id="todayBtn" class="btn" title="Bugünün programına git">Bugün</button>
-        <button id="resetBtn" class="btn" title="Filtreleri temizle">Sıfırla</button>
-        <button id="allBtn" class="btn" title="Tüm günleri listele">Tüm Oturumları Göster</button>
+        <button id="todayBtn" class="btn btn-today" title="Bugünün programına git">Bugün</button>
+        <button id="resetBtn" class="btn btn-reset" title="Filtreleri temizle">Sıfırla</button>
+        <button id="allBtn" class="btn btn-all" title="Tüm günleri listele">Tüm Oturumları Göster</button>
       </div>
-
-      <div class="legend">
-        <span class="chip" data-room="A">Salon A</span>
-        <span class="chip" data-room="B">Salon B</span>
-        <span class="chip" data-room="C">Salon C</span>
-        <span class="chip" data-room="D">Salon D</span>
-        <span class="chip" data-room="E">Salon E</span>
-      </div>
-
-      <div class="tabs" id="tabs"></div>
+<div class="tabs" id="tabs"></div>
     </div>
   </header>
 
@@ -129,7 +175,7 @@
     const tz = 'Europe/Istanbul';
     // Varsayılan SIMÜLASYON: "bugün"ü 27 Kasım 2025 kabul eder.
     // Gerçek tarihle çalışmak için '' yapın.
-    const simulateDate = '2025-11-27';
+    const simulateDate = ''; // simülasyon kapalı, sekmeler aktif
     let allMode = false; // Tüm günleri göster
 
     // === 2) VERİ: events[] ===
@@ -163,7 +209,7 @@
         const dt=new Date(d+'T12:00:00');
         btn.textContent=new Intl.DateTimeFormat('tr-TR',{weekday:'short', day:'2-digit', month:'long'}).format(dt);
         btn.title=d;
-        btn.onclick=()=>{ activeDate=d; mountTabs(); renderDay(); window.scrollTo(0,0); };
+        btn.onclick=()=>{ activeDate=d; mountTabs(); render(); window.scrollTo(0,0); };
         tabsEl.appendChild(btn);
       });
     }
@@ -256,7 +302,7 @@
       if(allMode){
         byDate.forEach(renderOneDay);
       }else{
-        if(simulateDate && byDate.includes(simulateDate)) activeDate=simulateDate;
+        // simulateDate zorlaması kaldırıldı; kullanıcı sekmesi korunur
         renderOneDay(activeDate);
       }
     }
